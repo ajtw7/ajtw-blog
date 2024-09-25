@@ -5,22 +5,26 @@ if (!URL.canParse(process.env.WORDPRESS_API_URL)) {
   `);
 }
 
-const { protocol, hostname, port, pathname } = new URL(
+const { protocol, hostname, port, pame } = new URL(
   process.env.WORDPRESS_API_URL,
 );
 
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ['impartiallybiased-com.preview-domain.com', 'secure.gravatar.com'],
+    domains: ['impartiallybiased.com', 'secure.gravatar.com'],
     remotePatterns: [
       {
         protocol: protocol.slice(0, -1),
         hostname,
         port,
-        pathname: `${pathname}/**`,
+        pathname: '/wp-content/uploads/**',
       },
-
+      {
+        protocol: 'https',
+        hostname: 'secure.gravatar.com',
+        pathname: '/avatar/**',
+      },
     ],
   },
 };
