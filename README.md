@@ -80,6 +80,21 @@ The [WPGraphQL](https://www.wpgraphql.com/) plugin also gives you access to a Gr
 
 ![WPGraphiQL page](./docs/wp-graphiql.png)
 
+### Initial query to pull post data
+
+{
+  posts {
+    nodes {
+      id
+      title
+      date
+    }
+  }
+}
+
+Test link: https://impartiallybiased.com/graphql
+
+
 ### Step 2. Populate Content
 
 Inside your WordPress admin, go to **Posts** and start adding new posts:
